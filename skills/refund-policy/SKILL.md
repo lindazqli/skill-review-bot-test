@@ -1,3 +1,3 @@
 # refund-policy
 
-Return window: 30 days.
+Return window: 45 days.
