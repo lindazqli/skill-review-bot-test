@@ -1,0 +1,26 @@
+# Cancel Subscription Skill
+
+This skill allows a customer to cancel their subscription by accepting a subscription ID, setting the cancellation effective date to the end of the current billing period, and calculating/reporting a prorated refund if canceled mid-cycle.
+
+## Conversation Template
+
+User: I want to cancel my subscription.
+Skill: Please provide your subscription ID.
+User: [provides subscription ID]
+Skill: Your subscription will be cancelled effective at the end of your current billing period. If you cancel mid-cycle, a prorated refund will be calculated and applied.
+Skill: Processing cancellation...
+Skill: Your subscription with ID {subscription_id} has been successfully cancelled.
+Skill: Your cancellation will take effect on {cancellation_date}.
+Skill: {refund_message}
+
+## Refund Calculation
+
+- If cancellation date is mid-cycle, calculate prorated refund based on unused days.
+- Otherwise, no refund applies.
+
+## Variables
+
+- subscription_id: the ID provided by the user
+- cancellation_date: end of current billing period
+- refund_message: details of any prorated refund or no refund message
+
