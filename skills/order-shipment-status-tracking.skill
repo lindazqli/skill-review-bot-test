@@ -1,0 +1,19 @@
+name: Order Shipment Status Tracking
+
+on_intent:
+  - intent: track_order_shipment
+
+slots:
+  order_id:
+    type: string
+    prompt: "Please provide your order ID to check the shipment status."
+
+actions:
+  - action: lookup_order
+    parameters:
+      order_id: ${order_id}
+    result: order_info
+
+  - action: reply_estimated_delivery
+    message: "Your order with ID ${order_id} is expected to arrive by ${order_info.estimated_delivery_date}."
+
